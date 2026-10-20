@@ -2,7 +2,7 @@ package algorithms;
 
 public class InsertionSort {
 
-    private static <T extends Comparable<T>> void sort(T[] A) {
+    public static <T extends Comparable<T>> void sort(T[] A) {
         for (int i = 1; i < A.length; i++) {
             T key = A[i];
             int j = i - 1;

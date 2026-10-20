@@ -8,26 +8,35 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Util {
 
-    private static final int RANDOM_ORIGIN = 0;
-    private static final int RANDOM_BOUND = 500;
-    private static final int REPEATED_COEFFICIENT = 10; // how many times should each random element be repeated
 
     public enum ArrayType {
-        RANDOM, REPEATED, CRESCENT, DECRESCENT
+        RANDOM("Aleatório"), REPEATED("Valores repetidos"), CRESCENT("Crescente"), DECRESCENT("Decrescente");
+
+        private final String name;
+
+        ArrayType(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
     }
 
-    public static Integer[] integerArray(ArrayType type, int size) {
+    public static Integer[] integerArray(ArrayType type, int size, int repeatedCoefficient, int randomOrigin, int randomBound) {
         Integer[] arr = (Integer[]) Array.newInstance(Integer.class, size);
         switch (type) {
             case RANDOM -> {
                 for (int i = 0; i < size; i++) {
-                    arr[i] = ThreadLocalRandom.current().nextInt(RANDOM_ORIGIN, RANDOM_BOUND);
+                    arr[i] = ThreadLocalRandom.current().nextInt(randomOrigin, randomBound);
                 }
             }
             case REPEATED -> {
                 List<Integer> list = new ArrayList<>();
-                for (int i = 0; i < size; i += REPEATED_COEFFICIENT) {
-                    list.set(i, ThreadLocalRandom.current().nextInt(RANDOM_ORIGIN, RANDOM_BOUND));
+                for (int i = 0; i < size; i += repeatedCoefficient) {
+                    for (int j = 0; j < repeatedCoefficient; j++) {
+                        list.set(i + j, ThreadLocalRandom.current().nextInt(randomOrigin, randomBound));
+                    }
                 }
                 Collections.shuffle(list);
                 arr = list.toArray(Integer[]::new);
