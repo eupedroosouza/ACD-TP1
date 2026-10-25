@@ -39,6 +39,11 @@ public class Main {
         }
 
 
+        System.out.println("======================================");
+        System.out.println("Input type: " + inputType);
+        System.out.println("Samples: " + samples);
+        System.out.println("Algorithms: " + Arrays.toString(Algorithm.values()));
+        System.out.println("Time mean: ");
         Integer[] arr = Util.integerArray(inputType, size, repeatedCoefficient, randomOrigin, randomBound);
 
 
@@ -49,12 +54,22 @@ public class Main {
         for (Algorithm algorithm : Algorithm.values()) {
             for (int i = 1; i <= samples; i++) {
                 long startTime = System.nanoTime();
-                algorithm.getFunction().accept(Arrays.copyOf(arr, arr.length));
+                try {
+                    algorithm.getFunction().accept(Arrays.copyOf(arr, arr.length));
+                } catch (Exception ex) {
+                    System.err.println("Fail running " + algorithm + ", skipping, but continue the others algorithms. See console...");
+                    ex.printStackTrace(System.err);
+                    timeMeans.put(algorithm, -1L);
+                    continue;
+                }
                 long endTime = System.nanoTime();
                 long time = (endTime - startTime);
                 timeMeans.put(algorithm, timeMeans.get(algorithm) + time);
+
             }
             timeMeans.put(algorithm, timeMeans.get(algorithm) / samples);
+            System.out.println(" " + algorithm + ": " + timeMeans.get(algorithm) + "ns");
+
             try {
                 // Save parcial results to preserve results
                 ResultUtil.save(path, timeMeans);
@@ -65,16 +80,6 @@ public class Main {
                 return;
             }
 
-        }
-        System.out.println("======================================");
-        System.out.println("Input type: " + inputType);
-        System.out.println("Samples: " + samples);
-        System.out.println("Algorithms: " + Arrays.toString(Algorithm.values()));
-        System.out.println("Time mean: ");
-        for (Map.Entry<Algorithm, Long> entry : timeMeans.entrySet()) {
-            Algorithm algorithm = entry.getKey();
-            long timeMean = entry.getValue();
-            System.out.println(" " + algorithm + ": " + timeMean + "ns");
         }
         System.out.println("======================================");
 

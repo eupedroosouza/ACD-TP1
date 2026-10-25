@@ -7,6 +7,7 @@ public enum Algorithm {
     // O(n)
     RADIXSORT("RadixSort", array -> RadixSort.sort(Integer.class, array)),
     COUNTINGSORT("CoutingSort", array -> CountingSort.sort(Integer.class, array)),
+    BUCKETSORT("BucketSort", BucketSort::sort),
     // O(n.log(n)) - most cases
     MERGESORT("MergeSort", array -> MergeSort.sort(Integer.class, array)),
     HEAPSORT("HeapSort", HeapSort::sort),
