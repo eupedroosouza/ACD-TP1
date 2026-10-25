@@ -14,6 +14,10 @@ import java.util.Map;
 public class Main {
 
     static void main(String[] args) {
+        if (!testAlgorithms()) {
+            return;
+        }
+
         HashMap<String, String> arguments = Arguments.parseArguments(args);
 
         Util.ArrayType inputType = Arguments.requiredArgument(arguments, Util.ArrayType::valueOf, "--inputType");
@@ -77,5 +81,33 @@ public class Main {
 
     }
 
+    static boolean testAlgorithms() {
+        System.out.println("======= Testings Algorithms =======");
+
+        Map<Util.ArrayType, Integer[]> arrays = Map.of(
+                Util.ArrayType.RANDOM, Util.integerArray(Util.ArrayType.RANDOM, 500, 10, 0, 500),
+                Util.ArrayType.REPEATED, Util.integerArray(Util.ArrayType.REPEATED, 500, 10, 0, 500),
+                Util.ArrayType.CRESCENT, Util.integerArray(Util.ArrayType.CRESCENT, 500, 10, 0, 500),
+                Util.ArrayType.DECRESCENT, Util.integerArray(Util.ArrayType.DECRESCENT, 500, 10, 0, 500)
+        );
+
+        for (Algorithm algorithm : Algorithm.values()) {
+            for (Util.ArrayType arrayType : Util.ArrayType.values()) {
+                Integer[] originalArray = arrays.get(arrayType);
+                Integer[] array = Arrays.copyOf(originalArray, originalArray.length);
+                algorithm.getFunction().accept(array);
+                boolean status = Util.checkOrderedByArrays(originalArray, array);
+                if (!status) {
+                    System.out.println(algorithm + " FAILED");
+                    System.exit(1);
+                    return false;
+                }
+            }
+            System.out.println(algorithm.toString() + " OK!");
+        }
+        System.out.println("===================================");
+        System.out.println("All algorithms is OK!");
+        return true;
+    }
 
 }
