@@ -41,7 +41,11 @@ def main():
             print(f" {input_type}")
             print("  Algorithms:")
             for algorithm in algorithms:
-                result_file = results_dir.joinpath(f"./{algorithm}/{size}/{input_type}.json").absolute()
+                current_result_dir = results_dir.joinpath(f"./{algorithm}/{size}/").absolute()
+                current_result_dir.mkdir(parents=True, exist_ok=True)
+
+                result_file = current_result_dir.joinpath(f"{input_type}.json").absolute()
+                result_log_file = current_result_dir.joinpath(f"{input_type}_log.txt").absolute()
 
                 command = [
                     "java",
@@ -55,17 +59,19 @@ def main():
                 try:
                     result = subprocess.run(
                         command,
+                        capture_output=True,
                         text=True,
                         check=True
                     )
+                    stdout = result.stdout.strip()
+                    with open(result_log_file, "w") as f:
+                        f.write(stdout)
+
                     print(f"   {algorithm} OK!")
                 except subprocess.CalledProcessError as e:
                     print(f"   {algorithm} FAILED: {e}")
-                    pass
-                pass
-    print("===================================")
 
-    pass
+    print("===================================")
 
 
 if __name__ == '__main__':

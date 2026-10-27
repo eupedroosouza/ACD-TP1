@@ -1,5 +1,6 @@
 plugins {
     application
+    id("com.gradleup.shadow") version "9.6.1"
 }
 
 repositories {
@@ -21,5 +22,11 @@ tasks {
         manifest {
             attributes(mapOf("Main-Class" to application.mainClass))
         }
+        archiveClassifier.set("plain")
+    }
+
+    shadowJar {
+        archiveClassifier.set("")
+        mergeServiceFiles()
     }
 }

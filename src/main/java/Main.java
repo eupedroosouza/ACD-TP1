@@ -34,8 +34,10 @@ public class Main {
 
         // Dynamic Warmup to save time
         int warmupCount;
-        if (size <= 10000) {
+        if (size <= 100) {
             warmupCount = 64;
+        } else if (size <= 10000) {
+            warmupCount = 32;
         } else if (size <= 100000) {
             warmupCount = 12;
         } else {
@@ -58,7 +60,6 @@ public class Main {
                 .measurementIterations(samples)
                 .measurementBatchSize(1)
                 .forks(1)
-                .shouldDoGC(true)
                 .resultFormat(ResultFormatType.JSON)
                 .result(resultFile)
                 .build();
