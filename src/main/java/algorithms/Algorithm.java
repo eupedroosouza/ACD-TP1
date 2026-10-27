@@ -15,8 +15,8 @@ public enum Algorithm {
     SHELLSORT("ShellSort", ShellSort::sort),
     // O(n^2)
     INSERTIONSORT("InsertionSort", InsertionSort::sort),
-    BUBBLESORT("BubbleSort", BubbleSort::sort),
-    SELECTIONSORT("SelectionSort", SelectionSort::sort);
+    SELECTIONSORT("SelectionSort", SelectionSort::sort),
+    BUBBLESORT("BubbleSort", BubbleSort::sort);
 
     private final String name;
     private final Consumer<Integer[]> function;

@@ -1,14 +1,12 @@
 package util;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Util {
 
+    public static final long SEED = 8472910482910L;
 
     public enum ArrayType {
         RANDOM("Aleatório"), REPEATED("Valores repetidos"), CRESCENT("Crescente"), DECRESCENT("Decrescente");
@@ -24,25 +22,31 @@ public class Util {
         }
     }
 
-    public static Integer[] integerArray(ArrayType type, int size, int repeatedCoefficient, int randomOrigin, int randomBound) {
+    public static Integer[] integerArray(ArrayType type, long seed, int size, int repeatedCoefficient, int origin, int bound) {
         Integer[] arr = (Integer[]) Array.newInstance(Integer.class, size);
         switch (type) {
             case RANDOM -> {
+                Random random = new Random(seed);
                 for (int i = 0; i < size; i++) {
-                    arr[i] = ThreadLocalRandom.current().nextInt(randomOrigin, randomBound);
+                    arr[i] = random.nextInt(origin, bound);
                 }
             }
             case REPEATED -> {
+                Random random = new Random(seed);
                 List<Integer> list = new ArrayList<>(size);
                 for (int i = 0; i < size; i++) { // initialize list
                     list.add(0);
                 }
                 for (int i = 0; i < size; i += repeatedCoefficient) {
+                    int repeatedValue = random.nextInt(origin, bound);
                     for (int j = 0; j < repeatedCoefficient; j++) {
-                        list.set(i + j, ThreadLocalRandom.current().nextInt(randomOrigin, randomBound));
+                        int idx = i + j;
+                        if (idx < size) {
+                            list.set(i + j, repeatedValue);
+                        }
                     }
                 }
-                Collections.shuffle(list);
+                Collections.shuffle(list, random);
                 arr = list.toArray(Integer[]::new);
             }
             case CRESCENT -> {
