@@ -34,14 +34,12 @@ public class Main {
 
         // Dynamic Warmup to save time
         int warmupCount;
-        if (size <= 100) {
-            warmupCount = 64;
-        } else if (size <= 10000) {
-            warmupCount = 32;
+        if (size <= 10000) {
+            warmupCount = 128;
         } else if (size <= 100000) {
-            warmupCount = 12;
+            warmupCount = 64;
         } else {
-            warmupCount = 6;
+            warmupCount = 16;
         }
 
         Options opt = new OptionsBuilder()
@@ -53,8 +51,6 @@ public class Main {
                 .param("repeatedCoefficient", String.valueOf(repeatedCoefficient))
                 .param("randomOrigin", String.valueOf(randomOrigin))
                 .param("randomBound", String.valueOf(randomBound))
-                .param("warmupSize", String.valueOf(warmupCount))
-                .param("samples", String.valueOf(samples))
                 .warmupIterations(warmupCount)
                 .warmupBatchSize(1)
                 .measurementIterations(samples)
