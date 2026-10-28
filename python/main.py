@@ -11,7 +11,6 @@ quadratic_algorithms = ["INSERTIONSORT", "SELECTIONSORT", "BUBBLESORT"]
 sizes = [1_000, 10_000, 100_000, 1_000_000]
 samples = 30  # can be changed to 30
 
-
 def run_test(results_dir: Path, executable: str, algorithm: str, size: int, input_type: str):
     current_result_dir = results_dir.joinpath(f"./{algorithm}/{size}/").absolute()
     current_result_dir.mkdir(parents=True, exist_ok=True)
@@ -21,6 +20,8 @@ def run_test(results_dir: Path, executable: str, algorithm: str, size: int, inpu
 
     command = [
         "java",
+        "-Xms512M",
+        "-Xmx16G",
         "-jar", str(executable),
         "--algorithm", str(algorithm),
         "--inputType", str(input_type),
