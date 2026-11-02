@@ -1,0 +1,91 @@
+[
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmark.SortBenchmark.bench",
+        "mode" : "ss",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "C:\\Program Files\\Java\\jdk-25.0.2\\bin\\java.exe",
+        "jvmArgs" : [
+            "-Xms512M",
+            "-Xmx16G"
+        ],
+        "jdkVersion" : "25.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.0.2+10-LTS-69",
+        "warmupIterations" : 64,
+        "warmupTime" : "single-shot",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 30,
+        "measurementTime" : "single-shot",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "algorithmName" : "INSERTIONSORT",
+            "inputType" : "RANDOM",
+            "randomBound" : "500",
+            "randomOrigin" : "0",
+            "repeatedCoefficient" : "10",
+            "seed" : "8472910482910",
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 6860.922173333333,
+            "scoreError" : 831.7510266077561,
+            "scoreConfidence" : [
+                6029.171146725577,
+                7692.6731999410895
+            ],
+            "scorePercentiles" : {
+                "0.0" : 5105.161,
+                "50.0" : 6157.83875,
+                "90.0" : 8747.45939,
+                "95.0" : 8935.813805,
+                "99.0" : 8974.5002,
+                "99.9" : 8974.5002,
+                "99.99" : 8974.5002,
+                "99.999" : 8974.5002,
+                "99.9999" : 8974.5002,
+                "100.0" : 8974.5002
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    5105.161,
+                    8440.4331,
+                    8441.8725,
+                    8554.3381,
+                    8767.8735,
+                    8904.1613,
+                    7882.3513,
+                    8138.0983,
+                    8563.7324,
+                    8452.0091,
+                    8974.5002,
+                    7193.3023,
+                    6525.0894,
+                    5780.4254,
+                    5988.3905,
+                    5682.7963,
+                    6053.5754,
+                    5906.3178,
+                    5838.99,
+                    5634.305,
+                    5768.4552,
+                    6148.9316,
+                    6252.3448,
+                    6049.5156,
+                    6257.336,
+                    6166.7459,
+                    6146.099,
+                    6072.5984,
+                    6103.6128,
+                    6034.303
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+

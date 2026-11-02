@@ -1,0 +1,91 @@
+[
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "benchmark.SortBenchmark.bench",
+        "mode" : "ss",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "C:\\Program Files\\Java\\jdk-25.0.2\\bin\\java.exe",
+        "jvmArgs" : [
+            "-Xms512M",
+            "-Xmx16G"
+        ],
+        "jdkVersion" : "25.0.2",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.0.2+10-LTS-69",
+        "warmupIterations" : 128,
+        "warmupTime" : "single-shot",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 30,
+        "measurementTime" : "single-shot",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "algorithmName" : "HEAPSORT",
+            "inputType" : "CRESCENT",
+            "randomBound" : "500",
+            "randomOrigin" : "0",
+            "repeatedCoefficient" : "10",
+            "seed" : "8472910482910",
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 0.9169500000000002,
+            "scoreError" : 0.045381688918329346,
+            "scoreConfidence" : [
+                0.8715683110816708,
+                0.9623316889183295
+            ],
+            "scorePercentiles" : {
+                "0.0" : 0.8654,
+                "50.0" : 0.89645,
+                "90.0" : 1.08177,
+                "95.0" : 1.090635,
+                "99.0" : 1.0985,
+                "99.9" : 1.0985,
+                "99.99" : 1.0985,
+                "99.999" : 1.0985,
+                "99.9999" : 1.0985,
+                "100.0" : 1.0985
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    0.8654,
+                    0.87,
+                    0.8693,
+                    0.8689,
+                    0.8877,
+                    0.8951,
+                    0.9001,
+                    0.8946,
+                    0.9045,
+                    0.9075,
+                    0.8978,
+                    0.907,
+                    1.0842,
+                    0.8864,
+                    0.8986,
+                    0.9051,
+                    0.9057,
+                    0.8931,
+                    0.8827,
+                    0.8731,
+                    1.0985,
+                    1.0834,
+                    0.8704,
+                    0.9212,
+                    0.9041,
+                    0.8916,
+                    0.8868,
+                    0.9048,
+                    1.0671,
+                    0.8838
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+

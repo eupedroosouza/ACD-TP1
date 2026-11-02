@@ -1,0 +1,135 @@
+# JMH version: 1.37
+# VM version: JDK 25.0.2, Java HotSpot(TM) 64-Bit Server VM, 25.0.2+10-LTS-69
+# VM invoker: C:\Program Files\Java\jdk-25.0.2\bin\java.exe
+# VM options: -Xms512M -Xmx16G
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 32 iterations, single-shot each
+# Measurement: 30 iterations, single-shot each
+# Timeout: 10 min per iteration
+# Threads: 1 thread
+# Benchmark mode: Single shot invocation time
+# Benchmark: benchmark.SortBenchmark.bench
+# Parameters: (algorithmName = COUNTINGSORT, inputType = DECRESCENT, randomBound = 500, randomOrigin = 0, repeatedCoefficient = 10, seed = 8472910482910, size = 1000000)
+
+# Run progress: 0,00% complete, ETA 00:00:00
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/Pedro/Documents/Eng.%20Computa%c3%a7%c3%a3o/4SP2/ACD/ACD-TP1/build/libs/ACD-TP1.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 30,944 ms/op
+# Warmup Iteration   2: 60,340 ms/op
+# Warmup Iteration   3: 12,043 ms/op
+# Warmup Iteration   4: 12,533 ms/op
+# Warmup Iteration   5: 10,453 ms/op
+# Warmup Iteration   6: 11,227 ms/op
+# Warmup Iteration   7: 12,107 ms/op
+# Warmup Iteration   8: 11,275 ms/op
+# Warmup Iteration   9: 11,584 ms/op
+# Warmup Iteration  10: 12,166 ms/op
+# Warmup Iteration  11: 12,136 ms/op
+# Warmup Iteration  12: 11,173 ms/op
+# Warmup Iteration  13: 11,306 ms/op
+# Warmup Iteration  14: 11,343 ms/op
+# Warmup Iteration  15: 11,055 ms/op
+# Warmup Iteration  16: 11,243 ms/op
+# Warmup Iteration  17: 11,446 ms/op
+# Warmup Iteration  18: 11,247 ms/op
+# Warmup Iteration  19: 12,443 ms/op
+# Warmup Iteration  20: 11,286 ms/op
+# Warmup Iteration  21: 10,880 ms/op
+# Warmup Iteration  22: 10,957 ms/op
+# Warmup Iteration  23: 11,711 ms/op
+# Warmup Iteration  24: 11,781 ms/op
+# Warmup Iteration  25: 12,529 ms/op
+# Warmup Iteration  26: 13,621 ms/op
+# Warmup Iteration  27: 11,277 ms/op
+# Warmup Iteration  28: 10,832 ms/op
+# Warmup Iteration  29: 9,653 ms/op
+# Warmup Iteration  30: 9,808 ms/op
+# Warmup Iteration  31: 10,963 ms/op
+# Warmup Iteration  32: 10,110 ms/op
+Iteration   1: 9,825 ms/op
+Iteration   2: 11,838 ms/op
+Iteration   3: 10,320 ms/op
+Iteration   4: 10,211 ms/op
+Iteration   5: 10,736 ms/op
+Iteration   6: 13,913 ms/op
+Iteration   7: 16,725 ms/op
+Iteration   8: 14,159 ms/op
+Iteration   9: 11,451 ms/op
+Iteration  10: 10,975 ms/op
+Iteration  11: 16,703 ms/op
+Iteration  12: 11,643 ms/op
+Iteration  13: 10,349 ms/op
+Iteration  14: 11,497 ms/op
+Iteration  15: 10,927 ms/op
+Iteration  16: 10,622 ms/op
+Iteration  17: 10,765 ms/op
+Iteration  18: 10,399 ms/op
+Iteration  19: 10,434 ms/op
+Iteration  20: 12,744 ms/op
+Iteration  21: 12,494 ms/op
+Iteration  22: 14,304 ms/op
+Iteration  23: 14,376 ms/op
+Iteration  24: 12,151 ms/op
+Iteration  25: 11,457 ms/op
+Iteration  26: 10,879 ms/op
+Iteration  27: 9,952 ms/op
+Iteration  28: 9,658 ms/op
+Iteration  29: 11,330 ms/op
+Iteration  30: 11,642 ms/op
+
+
+Result "benchmark.SortBenchmark.bench":
+  N = 30
+  mean =     11,816 ±(99.9%) 1,251 ms/op
+
+  Histogram, ms/op:
+    [ 9,000,  9,500) = 0 
+    [ 9,500, 10,000) = 3 
+    [10,000, 10,500) = 5 
+    [10,500, 11,000) = 6 
+    [11,000, 11,500) = 4 
+    [11,500, 12,000) = 3 
+    [12,000, 12,500) = 2 
+    [12,500, 13,000) = 1 
+    [13,000, 13,500) = 0 
+    [13,500, 14,000) = 1 
+    [14,000, 14,500) = 3 
+    [14,500, 15,000) = 0 
+    [15,000, 15,500) = 0 
+    [15,500, 16,000) = 0 
+    [16,000, 16,500) = 0 
+
+  Percentiles, ms/op:
+      p(0,0000) =      9,658 ms/op
+     p(50,0000) =     11,391 ms/op
+     p(90,0000) =     14,368 ms/op
+     p(95,0000) =     16,713 ms/op
+     p(99,0000) =     16,725 ms/op
+     p(99,9000) =     16,725 ms/op
+     p(99,9900) =     16,725 ms/op
+     p(99,9990) =     16,725 ms/op
+     p(99,9999) =     16,725 ms/op
+    p(100,0000) =     16,725 ms/op
+
+
+# Run complete. Total time: 00:00:01
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark            (algorithmName)  (inputType)  (randomBound)  (randomOrigin)  (repeatedCoefficient)         (seed)   (size)  Mode  Cnt   Score   Error  Units
+SortBenchmark.bench     COUNTINGSORT   DECRESCENT            500               0                     10  8472910482910  1000000    ss   30  11,816 ± 1,251  ms/op
+
+Benchmark result is saved to C:\Users\Pedro\Documents\Eng. Computação\4SP2\ACD\ACD-TP1\python\..\results\COUNTINGSORT\1000000\DECRESCENT.json

@@ -34,12 +34,14 @@ public class Main {
 
         // Dynamic Warmup to save time
         int warmupCount;
-        if (size <= 10000) {
+        if (size <= 1000) {
+            warmupCount = 256;
+        } else if (size <= 10000) {
             warmupCount = 128;
         } else if (size <= 100000) {
             warmupCount = 64;
         } else {
-            warmupCount = 16;
+            warmupCount = 32;
         }
 
         Options opt = new OptionsBuilder()

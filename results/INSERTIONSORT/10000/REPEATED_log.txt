@@ -1,0 +1,231 @@
+# JMH version: 1.37
+# VM version: JDK 25.0.2, Java HotSpot(TM) 64-Bit Server VM, 25.0.2+10-LTS-69
+# VM invoker: C:\Program Files\Java\jdk-25.0.2\bin\java.exe
+# VM options: -Xms512M -Xmx16G
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 128 iterations, single-shot each
+# Measurement: 30 iterations, single-shot each
+# Timeout: 10 min per iteration
+# Threads: 1 thread
+# Benchmark mode: Single shot invocation time
+# Benchmark: benchmark.SortBenchmark.bench
+# Parameters: (algorithmName = INSERTIONSORT, inputType = REPEATED, randomBound = 500, randomOrigin = 0, repeatedCoefficient = 10, seed = 8472910482910, size = 10000)
+
+# Run progress: 0,00% complete, ETA 00:00:00
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/C:/Users/Pedro/Documents/Eng.%20Computa%c3%a7%c3%a3o/4SP2/ACD/ACD-TP1/build/libs/ACD-TP1.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 91,978 ms/op
+# Warmup Iteration   2: 48,385 ms/op
+# Warmup Iteration   3: 47,722 ms/op
+# Warmup Iteration   4: 31,308 ms/op
+# Warmup Iteration   5: 31,548 ms/op
+# Warmup Iteration   6: 31,221 ms/op
+# Warmup Iteration   7: 31,373 ms/op
+# Warmup Iteration   8: 31,496 ms/op
+# Warmup Iteration   9: 31,342 ms/op
+# Warmup Iteration  10: 31,343 ms/op
+# Warmup Iteration  11: 31,883 ms/op
+# Warmup Iteration  12: 32,097 ms/op
+# Warmup Iteration  13: 31,431 ms/op
+# Warmup Iteration  14: 31,615 ms/op
+# Warmup Iteration  15: 31,654 ms/op
+# Warmup Iteration  16: 31,819 ms/op
+# Warmup Iteration  17: 31,625 ms/op
+# Warmup Iteration  18: 31,766 ms/op
+# Warmup Iteration  19: 31,365 ms/op
+# Warmup Iteration  20: 31,658 ms/op
+# Warmup Iteration  21: 31,628 ms/op
+# Warmup Iteration  22: 31,685 ms/op
+# Warmup Iteration  23: 31,972 ms/op
+# Warmup Iteration  24: 31,258 ms/op
+# Warmup Iteration  25: 31,647 ms/op
+# Warmup Iteration  26: 32,273 ms/op
+# Warmup Iteration  27: 32,136 ms/op
+# Warmup Iteration  28: 31,319 ms/op
+# Warmup Iteration  29: 31,361 ms/op
+# Warmup Iteration  30: 31,502 ms/op
+# Warmup Iteration  31: 31,250 ms/op
+# Warmup Iteration  32: 31,224 ms/op
+# Warmup Iteration  33: 31,105 ms/op
+# Warmup Iteration  34: 31,000 ms/op
+# Warmup Iteration  35: 31,229 ms/op
+# Warmup Iteration  36: 31,322 ms/op
+# Warmup Iteration  37: 31,111 ms/op
+# Warmup Iteration  38: 31,311 ms/op
+# Warmup Iteration  39: 30,857 ms/op
+# Warmup Iteration  40: 31,463 ms/op
+# Warmup Iteration  41: 31,699 ms/op
+# Warmup Iteration  42: 31,710 ms/op
+# Warmup Iteration  43: 31,542 ms/op
+# Warmup Iteration  44: 31,534 ms/op
+# Warmup Iteration  45: 31,584 ms/op
+# Warmup Iteration  46: 31,660 ms/op
+# Warmup Iteration  47: 31,266 ms/op
+# Warmup Iteration  48: 31,524 ms/op
+# Warmup Iteration  49: 31,753 ms/op
+# Warmup Iteration  50: 31,325 ms/op
+# Warmup Iteration  51: 31,264 ms/op
+# Warmup Iteration  52: 31,056 ms/op
+# Warmup Iteration  53: 30,947 ms/op
+# Warmup Iteration  54: 31,288 ms/op
+# Warmup Iteration  55: 30,958 ms/op
+# Warmup Iteration  56: 30,955 ms/op
+# Warmup Iteration  57: 30,906 ms/op
+# Warmup Iteration  58: 31,070 ms/op
+# Warmup Iteration  59: 31,007 ms/op
+# Warmup Iteration  60: 30,943 ms/op
+# Warmup Iteration  61: 31,323 ms/op
+# Warmup Iteration  62: 31,542 ms/op
+# Warmup Iteration  63: 31,167 ms/op
+# Warmup Iteration  64: 31,299 ms/op
+# Warmup Iteration  65: 31,319 ms/op
+# Warmup Iteration  66: 31,213 ms/op
+# Warmup Iteration  67: 31,403 ms/op
+# Warmup Iteration  68: 31,663 ms/op
+# Warmup Iteration  69: 31,701 ms/op
+# Warmup Iteration  70: 31,524 ms/op
+# Warmup Iteration  71: 32,280 ms/op
+# Warmup Iteration  72: 31,740 ms/op
+# Warmup Iteration  73: 31,464 ms/op
+# Warmup Iteration  74: 31,323 ms/op
+# Warmup Iteration  75: 31,356 ms/op
+# Warmup Iteration  76: 31,291 ms/op
+# Warmup Iteration  77: 31,385 ms/op
+# Warmup Iteration  78: 31,114 ms/op
+# Warmup Iteration  79: 31,280 ms/op
+# Warmup Iteration  80: 31,034 ms/op
+# Warmup Iteration  81: 31,093 ms/op
+# Warmup Iteration  82: 31,412 ms/op
+# Warmup Iteration  83: 31,374 ms/op
+# Warmup Iteration  84: 31,223 ms/op
+# Warmup Iteration  85: 31,310 ms/op
+# Warmup Iteration  86: 30,769 ms/op
+# Warmup Iteration  87: 31,079 ms/op
+# Warmup Iteration  88: 31,295 ms/op
+# Warmup Iteration  89: 31,105 ms/op
+# Warmup Iteration  90: 31,399 ms/op
+# Warmup Iteration  91: 31,001 ms/op
+# Warmup Iteration  92: 31,221 ms/op
+# Warmup Iteration  93: 31,040 ms/op
+# Warmup Iteration  94: 31,761 ms/op
+# Warmup Iteration  95: 37,094 ms/op
+# Warmup Iteration  96: 36,161 ms/op
+# Warmup Iteration  97: 37,895 ms/op
+# Warmup Iteration  98: 36,591 ms/op
+# Warmup Iteration  99: 36,147 ms/op
+# Warmup Iteration 100: 37,565 ms/op
+# Warmup Iteration 101: 35,945 ms/op
+# Warmup Iteration 102: 36,029 ms/op
+# Warmup Iteration 103: 36,074 ms/op
+# Warmup Iteration 104: 35,953 ms/op
+# Warmup Iteration 105: 35,768 ms/op
+# Warmup Iteration 106: 36,217 ms/op
+# Warmup Iteration 107: 37,552 ms/op
+# Warmup Iteration 108: 36,459 ms/op
+# Warmup Iteration 109: 35,682 ms/op
+# Warmup Iteration 110: 35,974 ms/op
+# Warmup Iteration 111: 35,859 ms/op
+# Warmup Iteration 112: 36,251 ms/op
+# Warmup Iteration 113: 36,259 ms/op
+# Warmup Iteration 114: 35,822 ms/op
+# Warmup Iteration 115: 36,037 ms/op
+# Warmup Iteration 116: 35,758 ms/op
+# Warmup Iteration 117: 35,956 ms/op
+# Warmup Iteration 118: 36,618 ms/op
+# Warmup Iteration 119: 35,984 ms/op
+# Warmup Iteration 120: 36,110 ms/op
+# Warmup Iteration 121: 36,293 ms/op
+# Warmup Iteration 122: 36,545 ms/op
+# Warmup Iteration 123: 36,303 ms/op
+# Warmup Iteration 124: 36,265 ms/op
+# Warmup Iteration 125: 36,583 ms/op
+# Warmup Iteration 126: 36,591 ms/op
+# Warmup Iteration 127: 36,388 ms/op
+# Warmup Iteration 128: 36,003 ms/op
+Iteration   1: 36,761 ms/op
+Iteration   2: 35,860 ms/op
+Iteration   3: 36,269 ms/op
+Iteration   4: 35,714 ms/op
+Iteration   5: 37,086 ms/op
+Iteration   6: 36,991 ms/op
+Iteration   7: 37,845 ms/op
+Iteration   8: 37,037 ms/op
+Iteration   9: 38,574 ms/op
+Iteration  10: 37,308 ms/op
+Iteration  11: 37,873 ms/op
+Iteration  12: 36,753 ms/op
+Iteration  13: 36,607 ms/op
+Iteration  14: 36,753 ms/op
+Iteration  15: 36,920 ms/op
+Iteration  16: 36,535 ms/op
+Iteration  17: 36,791 ms/op
+Iteration  18: 37,492 ms/op
+Iteration  19: 35,983 ms/op
+Iteration  20: 35,813 ms/op
+Iteration  21: 36,153 ms/op
+Iteration  22: 35,763 ms/op
+Iteration  23: 37,824 ms/op
+Iteration  24: 35,647 ms/op
+Iteration  25: 36,178 ms/op
+Iteration  26: 35,858 ms/op
+Iteration  27: 35,846 ms/op
+Iteration  28: 36,188 ms/op
+Iteration  29: 36,797 ms/op
+Iteration  30: 37,256 ms/op
+
+
+Result "benchmark.SortBenchmark.bench":
+  N = 30
+  mean =     36,682 ±(99.9%) 0,506 ms/op
+
+  Histogram, ms/op:
+    [35,000, 35,250) = 0 
+    [35,250, 35,500) = 0 
+    [35,500, 35,750) = 2 
+    [35,750, 36,000) = 6 
+    [36,000, 36,250) = 3 
+    [36,250, 36,500) = 1 
+    [36,500, 36,750) = 2 
+    [36,750, 37,000) = 7 
+    [37,000, 37,250) = 2 
+    [37,250, 37,500) = 3 
+    [37,500, 37,750) = 0 
+    [37,750, 38,000) = 3 
+    [38,000, 38,250) = 0 
+    [38,250, 38,500) = 0 
+    [38,500, 38,750) = 1 
+
+  Percentiles, ms/op:
+      p(0,0000) =     35,647 ms/op
+     p(50,0000) =     36,753 ms/op
+     p(90,0000) =     37,843 ms/op
+     p(95,0000) =     38,188 ms/op
+     p(99,0000) =     38,574 ms/op
+     p(99,9000) =     38,574 ms/op
+     p(99,9900) =     38,574 ms/op
+     p(99,9990) =     38,574 ms/op
+     p(99,9999) =     38,574 ms/op
+    p(100,0000) =     38,574 ms/op
+
+
+# Run complete. Total time: 00:00:05
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark            (algorithmName)  (inputType)  (randomBound)  (randomOrigin)  (repeatedCoefficient)         (seed)  (size)  Mode  Cnt   Score   Error  Units
+SortBenchmark.bench    INSERTIONSORT     REPEATED            500               0                     10  8472910482910   10000    ss   30  36,682 ± 0,506  ms/op
+
+Benchmark result is saved to C:\Users\Pedro\Documents\Eng. Computação\4SP2\ACD\ACD-TP1\python\..\results_insertionsort\INSERTIONSORT\10000\REPEATED.json

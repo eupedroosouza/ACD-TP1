@@ -55,8 +55,9 @@ public class Util {
                 }
             }
             case DECRESCENT -> {
+                int aux = 0;
                 for (int i = size - 1; i >= 0; i--) {
-                    arr[i] = i + 1;
+                    arr[aux++] = i + 1;
                 }
             }
         }
@@ -97,6 +98,18 @@ public class Util {
             }
         }
         return ord;
+
+    }
+
+    static void main() {
+        Integer[] randomArray1 = integerArray(ArrayType.RANDOM, SEED, 20, 10, 0, 500);
+        System.out.println("Random Input 1: " + Arrays.toString(randomArray1));
+        Integer[] randomArray2 = integerArray(ArrayType.RANDOM, SEED, 20, 10, 0, 500);
+        System.out.println("Random Input 2: " + Arrays.toString(randomArray2));
+        Integer[] crescentArray1 = integerArray(ArrayType.CRESCENT, SEED, 20, 10, 0, 500);
+        System.out.println("Crescent Input: " + Arrays.toString(crescentArray1));
+        Integer[] decrescentArray1 = integerArray(ArrayType.DECRESCENT, SEED, 20, 10, 0, 500);
+        System.out.println("Decrescent Input: " + Arrays.toString(decrescentArray1));
 
     }
 
