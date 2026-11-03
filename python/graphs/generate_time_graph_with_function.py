@@ -95,9 +95,9 @@ def generate_time_graph(results_dir: Path, graphs_dir: Path, algorithm: str):
         f"Tempo de Execução {algorithms_to_label[algorithm]}",
         fontsize=16, fontweight='bold')
     plt.tight_layout()
-    graph_path = graphs_dir.joinpath(f"./{algorithm}.svg").absolute()
+    graph_path = graphs_dir.joinpath(f"./{algorithm}.pdf").absolute()
     graph_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(graph_path, format="svg")
+    plt.savefig(graph_path, format="pdf")
     plt.close()
 
 

@@ -11,7 +11,7 @@ locale.setlocale(locale.LC_ALL, "pt_BR.UTF-8")
 
 
 def generate_dispersion(results_dir: Path, size: int, algorithm: str, graphs_dir: Path):
-    graph_path = graphs_dir.joinpath(f"./{size}/{algorithm}.svg")
+    graph_path = graphs_dir.joinpath(f"./{size}/{algorithm}.pdf")
     graph_path.parent.mkdir(parents=True, exist_ok=True)
 
     data: Dict[str, Dict[int, Any]] = load_algorithm_results(results_dir, algorithm)
@@ -52,7 +52,7 @@ def generate_dispersion(results_dir: Path, size: int, algorithm: str, graphs_dir
         f"Dispersão {algorithms_to_label[algorithm]} (tamanho = {locale.format_string("%i", size, grouping=True)})",
         fontsize=16, fontweight='bold')
     plt.tight_layout()
-    plt.savefig(graph_path, format="svg")
+    plt.savefig(graph_path, format="pdf")
     plt.close()
 
 
